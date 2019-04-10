@@ -8,8 +8,9 @@ const MovieShow = ({ movie }) =>
 	</div>
 
 const mapStateToProps = (state, ownProps) => {
-	// access the :movieId from the URL via match.params on ownProps
-	const movie = state.movies.find(movie => movie.id === Number(ownProps.match.params.movieId))
+	// access the :movieId from the URL via match.params on ownProps,
+	// using the + sign to convert the movieId string to a number
+	const movie = state.movies.find(movie => movie.id === +ownProps.match.params.movieId)
 	
 	if (movie) {
 		return { movie }
