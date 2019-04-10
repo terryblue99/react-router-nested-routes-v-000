@@ -1,3 +1,4 @@
+// add a new movie
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addMovie } from '../actions'
@@ -14,7 +15,7 @@ class MoviesNew extends Component {
 		const { addMovie, history } = this.props
 		// Create the movie with the Redux action
 		addMovie(this.state)
-		// redirect to /movies route
+		// redirect to /movies route after adding a new movie
 		history.push('/movies')
 	}
 

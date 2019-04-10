@@ -1,4 +1,4 @@
-// ./src/containers/MoviesPage.js
+// nested routes
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -9,7 +9,13 @@ import MoviesNew from './MoviesNew'
 const MoviesPage = ({ match, movies }) => 
   <div>
     <MoviesList movies={movies} />
-    <Switch>{/* Make sure to wrap all of your Routes as children of the Switch component*/ }
+    {/* The Switch component uniquely renders a route exclusively.
+       Make sure to wrap all of Routes as children of the Switch component.
+    */}
+    <Switch> 
+      /* define the /movies/new route first otherwise the /:id route handler would  
+         catch it first and assess "new"to be the id 
+      */
       <Route path={`${match.url}/new`} component={MoviesNew} />
       <Route path={`${match.url}/:movieId`} component={MovieShow} />
       <Route exact path={match.url} render={() => (
